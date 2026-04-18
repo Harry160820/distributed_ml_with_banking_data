@@ -22,11 +22,12 @@ PATHS = {
     "streaming":        ROOT / "artifacts" / "streaming",
     "reports":          ROOT / "artifacts" / "reports",
     "logs":             ROOT / "logs",
+    "bank_csv_hdfs": "hdfs://localhost:9000/banking/raw/bank/bank.csv",
 }
 
 def verify_paths():
     for key, path in PATHS.items():
-        if key in ["bank_csv", "transactions_csv"]:
+        if key in ["bank_csv", "transactions_csv", "bank_csv_hdfs"]:
             continue
         path.mkdir(parents=True, exist_ok=True)
     if not PATHS["bank_csv"].exists():

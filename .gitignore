@@ -1,0 +1,163 @@
+# ===============================
+# Python
+# ===============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+develop-eggs/
+downloads/
+sdist/
+wheels/
+share/python-wheels/
+pip-wheel-metadata/
+*.egg
+MANIFEST
+
+# Virtual Environments
+.env
+.venv
+venv/
+ENV/
+env/
+.python-version
+
+# Conda
+.conda/
+conda-meta/
+*.conda
+# (Usually don't ignore named env folders unless inside project)
+ml_project/
+data_eng_env/
+
+# ===============================
+# Jupyter / IPython
+# ===============================
+.ipynb_checkpoints
+profile_default/
+ipython_config.py
+
+# ===============================
+# VS Code / IDE
+# ===============================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===============================
+# OS Files
+# ===============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===============================
+# Logs
+# ===============================
+logs/
+*.log
+derby.log
+
+# ===============================
+# Secrets / Config
+# ===============================
+.env.*
+!.env.example
+secrets.json
+*.pem
+*.key
+
+# ===============================
+# Data Files (large/raw/generated)
+# ===============================
+data/raw/
+data/interim/
+data/processed/
+*.csv
+*.parquet
+*.orc
+*.avro
+*.feather
+*.xlsx
+
+# Keep sample data if needed
+!data/sample/
+!data/sample/**
+
+# ===============================
+# Artifacts / Outputs
+# ===============================
+artifacts/
+reports/
+outputs/
+models/
+checkpoints/
+
+# Keep folders if needed
+!artifacts/.gitkeep
+!reports/.gitkeep
+
+# ===============================
+# Spark / Hadoop / Hive
+# ===============================
+metastore_db/
+spark-warehouse/
+warehouse/
+*.crc
+
+# Hadoop temp/output
+tmp/
+temp/
+*_SUCCESS
+_SUCCESS
+
+# Hive scratch dirs
+/tmp/hive/
+hive_tmp/
+
+# ===============================
+# Kafka
+# ===============================
+kafka-logs/
+zookeeper/
+logs/kafka/
+
+# ===============================
+# Testing / Coverage
+# ===============================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.cache/
+
+# ===============================
+# mypy / lint
+# ===============================
+.mypy_cache/
+.ruff_cache/
+.pyre/
+
+# ===============================
+# Node (if dashboard/frontend added)
+# ===============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===============================
+# Misc
+# ===============================
+*.bak
+*.tmp
+*.temp
