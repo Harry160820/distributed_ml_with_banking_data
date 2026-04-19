@@ -91,15 +91,6 @@ data/processed/
 !data/sample/
 !data/sample/**
 
-# ===============================
-# Artifacts / Outputs
-# ===============================
-artifacts/
-reports/
-outputs/
-models/
-checkpoints/
-
 # Keep folders if needed
 !artifacts/.gitkeep
 !reports/.gitkeep

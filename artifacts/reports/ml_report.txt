@@ -1,0 +1,8 @@
+Banking ML Report
+--------------------
+Model  : Random Forest (100 trees, maxDepth=6)
+Target : term deposit subscription (y)
+AUC-ROC: 0.9017
+Accuracy: 0.8929
+F1 Score: 0.8546
+Model saved: /home/dell/projects/distributed_ml_project/artifacts/models/rf_model
