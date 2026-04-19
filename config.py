@@ -30,10 +30,13 @@ def verify_paths():
         if key in ["bank_csv", "transactions_csv", "bank_csv_hdfs"]:
             continue
         path.mkdir(parents=True, exist_ok=True)
-    if not PATHS["bank_csv"].exists():
-        print(f"[WARNING] bank.csv missing — place it at: {PATHS['bank_csv']}")
+
+    if PATHS["bank_csv"].exists():
+        print(f"[OK] Local bank.csv found at {PATHS['bank_csv']}")
     else:
-        print(f"[OK] bank.csv found at {PATHS['bank_csv']}")
+        print(f"[WARNING] Local bank.csv missing — expected at: {PATHS['bank_csv']}")
+
+    print(f"[OK] HDFS bank.csv expected at: {PATHS['bank_csv_hdfs']}")
 
 if __name__ == "__main__":
     verify_paths()

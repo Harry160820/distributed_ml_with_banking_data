@@ -1,48 +1,44 @@
 -- Creates Hive database and external tables pointing to HDFS.
 -- Run with: hive -f scripts/02_hive_setup.hql
 
-CREATE DATABASE IF NOT EXISTS banking_db;
+SET mapreduce.framework.name=local;
+SET hive.exec.mode.local.auto=true;
+SET hive.fetch.task.conversion=more;
+SET hive.exec.parallel=false;
 
+CREATE DATABASE IF NOT EXISTS banking_db;
 USE banking_db;
 
--- External table: reads bank.csv in-place from HDFS
-CREATE EXTERNAL TABLE IF NOT EXISTS bank_customers (
+DROP TABLE IF EXISTS bank_customers;
 
-    age       INT,
-    job       STRING,
-    marital   STRING,
+CREATE EXTERNAL TABLE IF NOT EXISTS bank_customers (
+    age INT,
+    job STRING,
+    marital STRING,
     education STRING,
     defaulted STRING,
-    balance   INT,
-    housing   STRING,
-    loan      STRING,
-    contact   STRING,
-    day       INT,
-    month     STRING,
-    duration  INT,
-    campaign  INT,
-    pdays     INT,
-    previous  INT,
-    poutcome  STRING,
-    subscribed STRING
+    balance INT,
+    housing STRING,
+    loan STRING,
+    contact STRING,
+    day INT,
+    month STRING,
+    duration INT,
+    campaign INT,
+    pdays INT,
+    previous INT,
+    poutcome STRING,
+    y STRING
 )
-
 ROW FORMAT DELIMITED
-    FIELDS TERMINATED BY ';'
-
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
 STORED AS TEXTFILE
-LOCATION '/banking/raw/bank/'
+LOCATION '/banking/raw/bank'
 TBLPROPERTIES ("skip.header.line.count"="1");
 
+SHOW TABLES;
 
--- Verify
-SELECT COUNT(*) AS total_rows FROM bank_customers;
-SELECT subscribed, COUNT(*) AS cnt
+SELECT * 
 FROM bank_customers
-GROUP BY subscribed;
-
--- Analytical queries for the report
-SELECT job, AVG(balance) AS avg_balance, COUNT(*) AS cnt
-FROM bank_customers
-GROUP BY job
-ORDER BY avg_balance DESC;
+LIMIT 5;
