@@ -84,7 +84,12 @@ f1  = f1_eval.evaluate(preds)
 
 # Save model
 
-model_path = str(PATHS["models"] / "rf_model")
+model_dir = (PATHS["models"] / "rf_model").resolve()
+model_path = model_dir.as_uri()
+
+print(f"[ML] Saving model to: {model_dir}")
+print(f"[ML] Models dir exists: {PATHS['models'].exists()}")
+
 model.write().overwrite().save(model_path)
 
 # Save report
@@ -96,7 +101,7 @@ Target : term deposit subscription (y)
 AUC-ROC: {auc:.4f}
 Accuracy: {acc:.4f}
 F1 Score: {f1:.4f}
-Model saved: {model_path}
+Model saved: {model_dir}
 """)
 print(report.read_text())
 spark.stop()
